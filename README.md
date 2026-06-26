@@ -246,9 +246,10 @@ This project is created for educational purposes. Feel free to use and modify fo
 ## 📞 Contact
 
 **Presenter**: Vaishnavi Gupta
-**Email**: vaishnavi@example.com
-**GitHub**: github.com/vaishnavi
-**LinkedIn**: linkedin.com/in/vaishnavi
+
+**Email**: vaishurgupta2010@gmail.com
+
+**LinkedIn**: [linkedin.com/in/vaishnavi](https://www.linkedin.com/in/vaishnavi-gupta-175ab1214/)
 
 ---
 
