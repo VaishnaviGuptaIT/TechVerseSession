@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechVerse – Modern Frontend Development in the AI Era</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p>TechVerse</p>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">TechVerse</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#agenda" class="nav-link">Agenda</a></li>
+                <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
+                <li><a href="#live-coding" class="nav-link">Live Coding</a></li>
+                <li><a href="#responsive" class="nav-link">Responsive</a></li>
+                <li><a href="#project-structure" class="nav-link">Projects</a></li>
+                <li><a href="#react" class="nav-link">Why React</a></li>
+                <li><a href="#ai" class="nav-link">AI Tools</a></li>
+                <li><a href="#challenge" class="nav-link">Challenge</a></li>
+                <li><a href="#career" class="nav-link">Career</a></li>
+                <li><a href="#qa" class="nav-link">Q&A</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle Dark Mode">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="presenter-mode-toggle" id="presenterModeToggle" aria-label="Presenter Mode">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Presenter Mode Controls -->
+    <div class="presenter-controls" id="presenterControls">
+        <div class="presenter-info">
+            <span class="presenter-progress" id="presenterProgress">1 of 11</span>
+            <button class="speaker-notes-toggle" id="speakerNotesToggle" aria-label="Speaker Notes">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <line x1="10" y1="9" x2="8" y2="9"></line>
+                </svg>
+                Notes
+            </button>
+        </div>
+        <div class="presenter-nav">
+            <button class="presenter-btn" id="prevSection" aria-label="Previous Section">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                Previous
+            </button>
+            <button class="presenter-btn" id="nextSection" aria-label="Next Section">
+                Next
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+            <button class="presenter-btn fullscreen-btn" id="fullscreenBtn" aria-label="Fullscreen">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Speaker Notes Panel -->
+    <div class="speaker-notes-panel" id="speakerNotesPanel">
+        <div class="speaker-notes-content">
+            <h3>Speaker Notes</h3>
+            <div id="speakerNotesText"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="section hero-section" id="hero" data-section="1">
+            <!-- TEACHING NOTE: Start with energy. Introduce yourself and the session. Explain that this is about real industry practices, not basics. -->
+            <div class="hero-background">
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-2"></div>
+                <div class="gradient-orb orb-3"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>Workshop 2026</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-main">TechVerse</span>
+                    <span class="title-subtitle">Bridging Learning & Technology</span>
+                </h1>
+                <h2 class="hero-session-title">Modern Frontend Development in the AI Era</h2>
+                <p class="hero-description">From HTML/CSS/JavaScript to Industry-Level Frontend Development</p>
+                <div class="hero-presenter">
+                    <div class="presenter-avatar">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <div class="presenter-info">
+                        <p class="presenter-name">Vaishnavi Gupta</p>
+                        <p class="presenter-role">Software Developer</p>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('agenda')">
+                        <span>Start Session</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('live-coding')">
+                        <span>Explore Demo</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agenda Section -->
+        <section class="section agenda-section" id="agenda" data-section="2">
+            <!-- TEACHING NOTE: Walk through the agenda. Tell students this is what we'll cover in 90 minutes. Emphasize the practical focus. -->
+            <!-- INTERVIEW QUESTION: "What do you think is the most important skill for a frontend developer?" -->
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Today's Plan</span>
+                    <h2 class="section-title">Today's Agenda</h2>
+                    <p class="section-description">Our journey from basics to industry practices</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Introduction</h3>
+                            <p>Welcome & Session Overview</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Industry Frontend Roadmap</h3>
+                            <p>What companies actually expect</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Live Coding</h3>
+                            <p>Building components together</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Responsive Design</h3>
+                            <p>Mobile-first approach</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Why React Exists</h3>
+                            <p>Understanding component architecture</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>AI for Frontend</h3>
+                            <p>Tools that boost productivity</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Student Challenge</h3>
+                            <p>Hands-on practice</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Career Tips</h3>
+                            <p>From diploma to developer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap Section -->
+        <section class="section roadmap-section" id="roadmap" data-section="3">
+            <!-- TEACHING NOTE: Explain each step. Emphasize that this is the path companies follow. Ask students which step they're on. -->
+            <!-- INDUSTRY EXAMPLE: "At my company, we use Git for every project. No code goes to production without code review." -->
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Your Path</span>
+                    <h2 class="section-title">Industry Frontend Roadmap</h2>
+                    <p class="section-description">The skills that matter in real companies</p>
+                </div>
+                <div class="roadmap-grid">
+                    <div class="roadmap-card">
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
+                        <h3>HTML</h3>
+                        <p class="card-importance">Why Important: Foundation of every webpage</p>
+                        <p class="card-industry">Industry Use: Semantic structure, accessibility, SEO</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                            </svg>
+                        </div>
+                        <h3>CSS</h3>
+                        <p class="card-importance">Why Important: Makes websites beautiful</p>
+                        <p class="card-industry">Industry Use: Animations, responsive layouts, theming</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2m5.66 0H14a2 2 0 0 1 2 2v3.34l1 1L23 7v10"></path>
+                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                            </svg>
+                        </div>
+                        <h3>JavaScript</h3>
+                        <p class="card-importance">Why Important: Adds interactivity</p>
+                        <p class="card-industry">Industry Use: API calls, form validation, dynamic content</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="6" y1="3" x2="6" y2="15"></line>
+                                <circle cx="18" cy="6" r="3"></circle>
+                                <circle cx="6" cy="18" r="3"></circle>
+                                <path d="M18 9a9 9 0 0 1-9 9"></path>
+                            </svg>
+                        </div>
+                        <h3>Git</h3>
+                        <p class="card-importance">Why Important: Version control is mandatory</p>
+                        <p class="card-industry">Industry Use: Collaboration, code review, rollback</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                        </div>
+                        <h3>GitHub</h3>
+                        <p class="card-importance">Why Important: Portfolio & collaboration platform</p>
+                        <p class="card-industry">Industry Use: Hosting code, CI/CD, open source contribution</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                        </div>
+                        <h3>Responsive Design</h3>
+                        <p class="card-importance">Why Important: Mobile traffic > desktop</p>
+                        <p class="card-industry">Industry Use: Media queries, flexbox, grid</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                        </div>
+                        <h3>API Integration</h3>
+                        <p class="card-importance">Why Important: Connect to backend services</p>
+                        <p class="card-industry">Industry Use: Fetch, Axios, REST, GraphQL</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="2"></circle>
+                                <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"></path>
+                            </svg>
+                        </div>
+                        <h3>React</h3>
+                        <p class="card-importance">Why Important: Industry standard for complex apps</p>
+                        <p class="card-industry">Industry Use: Components, state management, hooks</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            </svg>
+                        </div>
+                        <h3>Deployment</h3>
+                        <p class="card-importance">Why Important: Get your code to users</p>
+                        <p class="card-industry">Industry Use: Vercel, Netlify, CI/CD pipelines</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                        </div>
+                        <h3>Performance</h3>
+                        <p class="card-importance">Why Important: Fast sites = happy users</p>
+                        <p class="card-industry">Industry Use: Lazy loading, optimization, caching</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"></path>
+                            </svg>
+                        </div>
+                        <h3>AI Tools</h3>
+                        <p class="card-importance">Why Important: 10x your productivity</p>
+                        <p class="card-industry">Industry Use: Copilot, ChatGPT, code generation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Coding Section -->
+        <section class="section live-coding-section" id="live-coding" data-section="4">
+            <!-- TEACHING NOTE: This is the core demo. Switch between HTML, CSS, JS. Explain each line. Show how they work together. -->
+            <!-- PRACTICAL TIP: "Always write clean, readable code. Your future self will thank you." -->
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Hands-On</span>
+                    <h2 class="section-title">Live Coding</h2>
+                    <p class="section-description">See how HTML, CSS, and JavaScript work together</p>
+                </div>
+                <div class="live-coding-container">
+                    <div class="code-panel">
+                        <div class="code-tabs">
+                            <button class="code-tab active" data-tab="html">HTML</button>
+                            <button class="code-tab" data-tab="css">CSS</button>
+                            <button class="code-tab" data-tab="js">JavaScript</button>
+                        </div>
+                        <div class="code-content">
+                            <div class="code-block active" id="html-code">
+<pre><code>&lt;!-- Semantic HTML Structure --&gt;
+&lt;div class="card"&gt;
+  &lt;img src="avatar.jpg" alt="User"&gt;
+  &lt;h2&gt;John Doe&lt;/h2&gt;
+  &lt;p class="role"&gt;Developer&lt;/p&gt;
+  &lt;button class="btn"&gt;Connect&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                            <div class="code-block" id="css-code">
+<pre><code>/* Clean CSS Styling */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+}</code></pre>
+                            </div>
+                            <div class="code-block" id="js-code">
+<pre><code>// JavaScript Interactivity
+const btn = document.querySelector('.btn');
+btn.addEventListener('click', () => {
+  alert('Connected!');
+});
+
+// Dynamic content
+const card = document.querySelector('.card');
+card.addEventListener('mouseenter', () => {
+  card.style.boxShadow = '0 8px 16px rgba(0,0,0,0.2)';
+});</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preview-panel">
+                        <div class="preview-header">
+                            <span>Live Preview</span>
+                            <div class="preview-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="preview-content" id="previewContent">
+                            <div class="demo-card">
+                                <div class="demo-avatar">
+                                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                </div>
+                                <h3>John Doe</h3>
+                                <p class="demo-role">Developer</p>
+                                <button class="demo-btn" onclick="showDemoAlert()">Connect</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="coding-tips">
+                    <div class="tip-card">
+                        <h4>📝 Semantic HTML</h4>
+                        <p>Use meaningful tags like &lt;nav&gt;, &lt;article&gt;, &lt;section&gt; for better accessibility and SEO</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>🎨 Clean CSS</h4>
+                        <p>Organize styles, use variables, keep it DRY (Don't Repeat Yourself)</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>⚡ JavaScript</h4>
+                        <p>Add interactivity, handle events, manipulate DOM dynamically</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Responsive Design Section -->
+        <section class="section responsive-section" id="responsive" data-section="5">
+            <!-- TEACHING NOTE: Show the resize demo. Explain mobile-first. Ask why mobile-first matters. -->
+            <!-- INDUSTRY EXAMPLE: "60% of our traffic comes from mobile. We design mobile-first." -->
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Essential Skill</span>
+                    <h2 class="section-title">Responsive Design</h2>
+                    <p class="section-description">One website, all devices</p>
+                </div>
+                <div class="responsive-demo">
+                    <div class="device-selector">
+                        <button class="device-btn active" data-device="desktop">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                            Desktop
+                        </button>
+                        <button class="device-btn" data-device="tablet">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                            Tablet
+                        </button>
+                        <button class="device-btn" data-device="mobile">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                            Mobile
+                        </button>
+                    </div>
+                    <div class="device-preview">
+                        <div class="device-frame desktop-frame active" id="desktopFrame">
+                            <div class="device-screen">
+                                <div class="demo-layout desktop-layout">
+                                    <div class="demo-nav">Navigation</div>
+                                    <div class="demo-hero">Hero Section</div>
+                                    <div class="demo-content">
+                                        <div class="demo-sidebar">Sidebar</div>
+                                        <div class="demo-main">Main Content</div>
+                                    </div>
+                                    <div class="demo-footer">Footer</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="device-frame tablet-frame" id="tabletFrame">
+                            <div class="device-screen">
+                                <div class="demo-layout tablet-layout">
+                                    <div class="demo-nav">Navigation</div>
+                                    <div class="demo-hero">Hero</div>
+                                    <div class="demo-content">
+                                        <div class="demo-main">Main Content</div>
+                                    </div>
+                                    <div class="demo-footer">Footer</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="device-frame mobile-frame" id="mobileFrame">
+                            <div class="device-screen">
+                                <div class="demo-layout mobile-layout">
+                                    <div class="demo-nav">☰</div>
+                                    <div class="demo-hero">Hero</div>
+                                    <div class="demo-content">
+                                        <div class="demo-main">Content</div>
+                                    </div>
+                                    <div class="demo-footer">Footer</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="responsive-concepts">
+                    <div class="concept-card">
+                        <h3>📱 Mobile First</h3>
+                        <p>Design for mobile first, then enhance for larger screens. This ensures performance and better UX.</p>
+                    </div>
+                    <div class="concept-card">
+                        <h3>🔲 Flexbox</h3>
+                        <p>One-dimensional layout system. Perfect for arranging items in rows or columns.</p>
+                    </div>
+                    <div class="concept-card">
+                        <h3>🔳 CSS Grid</h3>
+                        <p>Two-dimensional layout system. Ideal for complex page layouts with rows and columns.</p>
+                    </div>
+                    <div class="concept-card">
+                        <h3>📏 Media Queries</h3>
+                        <p>Apply different styles based on screen size, orientation, and other features.</p>
+                    </div>
+                </div>
+
+                <!-- CSS Frameworks Topic -->
+                <div class="css-frameworks-section">
+                    <div class="section-header">
+                        <h3 class="subsection-title">CSS Frameworks</h3>
+                        <p class="subsection-description">Pre-built CSS libraries to speed up development</p>
+                    </div>
+                    <div class="frameworks-grid">
+                        <div class="framework-card">
+                            <h4>🎨 Tailwind CSS</h4>
+                            <p>Utility-first CSS framework. Build designs directly in HTML with pre-defined classes.</p>
+                            <span class="framework-tag">Popular</span>
+                        </div>
+                        <div class="framework-card">
+                            <h4>🅱️ Bootstrap</h4>
+                            <p>Component-based framework. Ready-to-use components like buttons, navbars, cards.</p>
+                            <span class="framework-tag">Classic</span>
+                        </div>
+                        <div class="framework-card">
+                            <h4>🔷 Material UI</h4>
+                            <p>React component library implementing Google's Material Design principles.</p>
+                            <span class="framework-tag">React</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code Comparison -->
+                <div class="code-comparison-section">
+                    <div class="section-header">
+                        <h3 class="subsection-title">Code Comparison: Media Query vs Tailwind CSS</h3>
+                        <p class="subsection-description">Same responsive card, two different approaches</p>
+                    </div>
+                    <div class="comparison-container">
+                        <div class="comparison-side">
+                            <h4>Using Media Queries (Pure CSS)</h4>
+                            <div class="comparison-code-block">
+<pre><code>/* Pure CSS with Media Queries */
+.card {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  width: 100%;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .card {
+    width: 50%;
+    padding: 32px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .card {
+    width: 33.33%;
+    padding: 40px;
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                        <div class="comparison-arrow">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </div>
+                        <div class="comparison-side">
+                            <h4>Using Tailwind CSS</h4>
+                            <div class="comparison-code-block">
+<pre><code>&lt;!-- Tailwind CSS Classes --&gt;
+&lt;div class="w-full p-6 rounded-xl bg-white
+            md:w-1/2 md:p-8
+            lg:w-1/3 lg:p-10"&gt;
+  Card Content
+&lt;/div&gt;
+
+/* Breakpoints:
+   sm: 640px
+   md: 768px
+   lg: 1024px
+   xl: 1280px */</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comparison-note">
+                        <p><strong>Key Difference:</strong> Media queries require writing separate CSS blocks, while Tailwind uses utility classes directly in HTML for faster development.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Structure Section -->
+        <section class="section project-structure-section" id="project-structure" data-section="6">
+            <!-- TEACHING NOTE: Explain organization. Show why structure matters for teamwork. -->
+            <!-- INTERVIEW QUESTION: "How would you organize a project with 100+ files?" -->
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Real World</span>
+                    <h2 class="section-title">From Simple to Industry</h2>
+                    <p class="section-description">How projects grow and evolve</p>
+                </div>
+                <div class="structure-comparison">
+                    <div class="structure-side beginner-side">
+                        <h3>🌱 Beginner Project</h3>
+                        <div class="file-tree">
+                            <div class="file-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                </svg>
+                                index.html
+                            </div>
+                            <div class="file-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                </svg>
+                                style.css
+                            </div>
+                            <div class="file-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                </svg>
+                                script.js
+                            </div>
+                        </div>
+                        <p class="structure-note">Perfect for learning and small projects</p>
+                    </div>
+                    <div class="structure-arrow">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                    <div class="structure-side industry-side">
+                        <h3>🏢 Industry Project</h3>
+                        <div class="file-tree">
+                            <div class="file-folder">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                                components/
+                            </div>
+                            <div class="file-folder">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                                pages/
+                            </div>
+                            <div class="file-folder">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                                assets/
+                            </div>
+                            <div class="file-folder">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                                services/
+                            </div>
+                            <div class="file-folder">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                                styles/
+                            </div>
+                            <div class="file-folder">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                                utils/
+                            </div>
+                        </div>
+                        <p class="structure-note">Organized for teamwork and maintainability</p>
+                    </div>
+                </div>
+                <div class="structure-explanation">
+                    <p class="explanation-text">"As projects grow, developers organize files for maintainability and teamwork. This allows multiple developers to work on different parts without conflicts."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why React Section -->
+        <section class="section react-section" id="react" data-section="7">
+            <!-- TEACHING NOTE: Focus on the problem, not the solution. Show why we need components. -->
+            <!-- PRACTICAL TIP: "Think of components like LEGO blocks - reusable building pieces." -->
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Concept</span>
+                    <h2 class="section-title">Why React Exists</h2>
+                    <p class="section-description">Understanding the problem before the solution</p>
+                </div>
+                <div class="problem-solution">
+                    <div class="problem-side">
+                        <h3>❌ The Problem</h3>
+                        <div class="code-comparison">
+                            <div class="comparison-item">
+                                <span class="comparison-label">Page 1</span>
+                                <div class="comparison-code">
+                                    &lt;nav&gt;...&lt;/nav&gt;<br>
+                                    &lt;footer&gt;...&lt;/footer&gt;
+                                </div>
+                            </div>
+                            <div class="comparison-item">
+                                <span class="comparison-label">Page 2</span>
+                                <div class="comparison-code">
+                                    &lt;nav&gt;...&lt;/nav&gt;<br>
+                                    &lt;footer&gt;...&lt;/footer&gt;
+                                </div>
+                            </div>
+                            <div class="comparison-item">
+                                <span class="comparison-label">Page 3</span>
+                                <div class="comparison-code">
+                                    &lt;nav&gt;...&lt;/nav&gt;<br>
+                                    &lt;footer&gt;...&lt;/footer&gt;
+                                </div>
+                            </div>
+                        </div>
+                        <p class="problem-text">Same code copied everywhere. Hard to maintain. Change once, update everywhere.</p>
+                    </div>
+                    <div class="solution-arrow">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                    <div class="solution-side">
+                        <h3>✅ The Solution</h3>
+                        <div class="component-demo">
+                            <div class="component-block">
+                                <span class="component-label">&lt;Navbar /&gt;</span>
+                            </div>
+                            <div class="component-block">
+                                <span class="component-label">&lt;PageContent /&gt;</span>
+                            </div>
+                            <div class="component-block">
+                                <span class="component-label">&lt;Footer /&gt;</span>
+                            </div>
+                        </div>
+                        <p class="solution-text">Reusable components. Write once, use everywhere. Easy to maintain and test.</p>
+                    </div>
+                </div>
+                <div class="react-benefits">
+                    <div class="benefit-card">
+                        <h4>🔄 Reusability</h4>
+                        <p>Write components once, reuse them across your application</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>🧩 Composability</h4>
+                        <p>Combine small components to build complex UIs</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>🛠️ Maintainability</h4>
+                        <p>Update a component in one place, see changes everywhere</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>👥 Teamwork</h4>
+                        <p>Multiple developers can work on different components simultaneously</p>
+                    </div>
+                </div>
+
+                <!-- React Basics Section -->
+                <div class="react-basics-section">
+                    <div class="section-header">
+                        <h3 class="subsection-title">React Basics</h3>
+                        <p class="subsection-description">What is React and how it works</p>
+                    </div>
+                    
+                    <div class="react-explanation">
+                        <div class="explanation-card">
+                            <h4>⚛️ What is React?</h4>
+                            <p>React is a JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called "components."</p>
+                        </div>
+                        <div class="explanation-card">
+                            <h4>🏗️ React Structure</h4>
+                            <p>React applications are built as a tree of components. Each component is a self-contained piece of UI that can have its own state and logic.</p>
+                        </div>
+                        <div class="explanation-card">
+                            <h4>🎯 Why We Use React?</h4>
+                            <p>React makes it easy to create interactive UIs. It efficiently updates and renders the right components when your data changes. Declarative views make code predictable and easier to debug.</p>
+                        </div>
+                        <div class="explanation-card">
+                            <h4>⚙️ How We Use React?</h4>
+                            <p>We create functional components using JSX (JavaScript XML), use hooks for state management, and compose components together to build complex applications.</p>
+                        </div>
+                    </div>
+
+                    <!-- React Code Example -->
+                    <div class="react-code-example">
+                        <div class="section-header">
+                            <h3 class="subsection-title">Simple React Example</h3>
+                            <p class="subsection-description">A counter component with live preview</p>
+                        </div>
+                        <div class="react-demo-container">
+                            <div class="react-code-panel">
+                                <div class="react-code-header">
+                                    <span>Counter Component</span>
+                                </div>
+                                <div class="react-code-content">
+<pre><code>// React Counter Component
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div className="counter"&gt;
+      &lt;h2&gt;Counter: {count}&lt;/h2&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        Increment
+      &lt;/button&gt;
+      &lt;button onClick={() =&gt; setCount(count - 1)}&gt;
+        Decrement
+      &lt;/button&gt;
+      &lt;button onClick={() =&gt; setCount(0)}&gt;
+        Reset
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+
+export default Counter;</code></pre>
+                                </div>
+                            </div>
+                            <div class="react-preview-panel">
+                                <div class="react-preview-header">
+                                    <span>Live Preview</span>
+                                </div>
+                                <div class="react-preview-content">
+                                    <div class="react-demo-counter" id="reactDemoCounter">
+                                        <h2>Counter: <span id="counterValue">0</span></h2>
+                                        <div class="counter-buttons">
+                                            <button class="counter-btn" onclick="incrementCounter()">Increment</button>
+                                            <button class="counter-btn" onclick="decrementCounter()">Decrement</button>
+                                            <button class="counter-btn reset-btn" onclick="resetCounter()">Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="react-note">
+                            <p><strong>Note:</strong> This preview simulates React behavior using vanilla JavaScript. In real React, the state management is handled automatically by React's useState hook.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Tools Section -->
+        <section class="section ai-section" id="ai" data-section="8">
+            <!-- TEACHING NOTE: Show each tool. Explain use cases. Be honest about limitations. -->
+            <!-- PRACTICAL TIP: "AI is your assistant, not your replacement. You still need to understand the code." -->
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Future Ready</span>
+                    <h2 class="section-title">AI in Frontend Development</h2>
+                    <p class="section-description">Tools that boost your productivity</p>
+                </div>
+
+                <!-- AI Chatbots Category -->
+                <div class="ai-category">
+                    <h3 class="category-title">🤖 AI Chatbots</h3>
+                    <p class="category-description">Conversational AI for learning and problem-solving</p>
+                    <div class="ai-tools-grid">
+                        <div class="ai-tool-card">
+                            <div class="tool-icon">🤖</div>
+                            <h3>ChatGPT</h3>
+                            <div class="tool-use-cases">
+                                <h4>Best Use Cases</h4>
+                                <ul>
+                                    <li>Explaining concepts</li>
+                                    <li>Debugging help</li>
+                                    <li>Code suggestions</li>
+                                </ul>
+                            </div>
+                            <div class="tool-advantages">
+                                <h4>Advantages</h4>
+                                <ul>
+                                    <li>Conversational</li>
+                                    <li>Context-aware</li>
+                                    <li>Great for learning</li>
+                                </ul>
+                            </div>
+                            <div class="tool-limitations">
+                                <h4>Still Need To</h4>
+                                <ul>
+                                    <li>Verify code quality</li>
+                                    <li>Understand the solution</li>
+                                    <li>Test thoroughly</li>
+                                </ul>
+                            </div>
+                            <div class="tool-prompt">
+                                <h4>Example Prompt</h4>
+                                <p>"Explain how CSS Grid works with a simple example"</p>
+                            </div>
+                        </div>
+                        <div class="ai-tool-card">
+                            <div class="tool-icon">🧠</div>
+                            <h3>Claude</h3>
+                            <div class="tool-use-cases">
+                                <h4>Best Use Cases</h4>
+                                <ul>
+                                    <li>Complex problem solving</li>
+                                    <li>Code review</li>
+                                    <li>Architecture planning</li>
+                                </ul>
+                            </div>
+                            <div class="tool-advantages">
+                                <h4>Advantages</h4>
+                                <ul>
+                                    <li>Large context window</li>
+                                    <li>Thoughtful responses</li>
+                                    <li>Great for analysis</li>
+                                </ul>
+                            </div>
+                            <div class="tool-limitations">
+                                <h4>Still Need To</h4>
+                                <ul>
+                                    <li>Implement solutions</li>
+                                    <li>Make architectural decisions</li>
+                                    <li>Handle edge cases</li>
+                                </ul>
+                            </div>
+                            <div class="tool-prompt">
+                                <h4>Example Prompt</h4>
+                                <p>"Review this code and suggest improvements for performance"</p>
+                            </div>
+                        </div>
+                        <div class="ai-tool-card">
+                            <div class="tool-icon">💎</div>
+                            <h3>Gemini</h3>
+                            <div class="tool-use-cases">
+                                <h4>Best Use Cases</h4>
+                                <ul>
+                                    <li>Multimodal tasks</li>
+                                    <li>Code generation</li>
+                                    <li>Image analysis</li>
+                                </ul>
+                            </div>
+                            <div class="tool-advantages">
+                                <h4>Advantages</h4>
+                                <ul>
+                                    <li>Multimodal capabilities</li>
+                                    <li>Google integration</li>
+                                    <li>Fast responses</li>
+                                </ul>
+                            </div>
+                            <div class="tool-limitations">
+                                <h4>Still Need To</h4>
+                                <ul>
+                                    <li>Verify accuracy</li>
+                                    <li>Understand context</li>
+                                    <li>Test implementations</li>
+                                </ul>
+                            </div>
+                            <div class="tool-prompt">
+                                <h4>Example Prompt</h4>
+                                <p>"Generate a React component for a user profile card"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IDE AI Category -->
+                <div class="ai-category">
+                    <h3 class="category-title">💻 IDE AI</h3>
+                    <p class="category-description">AI integrated directly into your development environment</p>
+                    <div class="ai-tools-grid">
+                        <div class="ai-tool-card">
+                            <div class="tool-icon">✨</div>
+                            <h3>GitHub Copilot</h3>
+                            <div class="tool-use-cases">
+                                <h4>Best Use Cases</h4>
+                                <ul>
+                                    <li>Code completion</li>
+                                    <li>Boilerplate generation</li>
+                                    <li>Function suggestions</li>
+                                </ul>
+                            </div>
+                            <div class="tool-advantages">
+                                <h4>Advantages</h4>
+                                <ul>
+                                    <li>Integrated in IDE</li>
+                                    <li>Context from your code</li>
+                                    <li>Fast suggestions</li>
+                                </ul>
+                            </div>
+                            <div class="tool-limitations">
+                                <h4>Still Need To</h4>
+                                <ul>
+                                    <li>Review suggestions</li>
+                                    <li>Understand patterns</li>
+                                    <li>Customize for needs</li>
+                                </ul>
+                            </div>
+                            <div class="tool-prompt">
+                                <h4>Example Prompt</h4>
+                                <p>Write a comment: "Create a responsive navbar with hamburger menu"</p>
+                            </div>
+                        </div>
+                        <div class="ai-tool-card">
+                            <div class="tool-icon">🎯</div>
+                            <h3>Cursor</h3>
+                            <div class="tool-use-cases">
+                                <h4>Best Use Cases</h4>
+                                <ul>
+                                    <li>Codebase understanding</li>
+                                    <li>Refactoring assistance</li>
+                                    <li>Feature implementation</li>
+                                </ul>
+                            </div>
+                            <div class="tool-advantages">
+                                <h4>Advantages</h4>
+                                <ul>
+                                    <li>Full project context</li>
+                                    <li>Multi-file editing</li>
+                                    <li>Chat with codebase</li>
+                                </ul>
+                            </div>
+                            <div class="tool-limitations">
+                                <h4>Still Need To</h4>
+                                <ul>
+                                    <li>Guide the AI</li>
+                                    <li>Review changes</li>
+                                    <li>Test thoroughly</li>
+                                </ul>
+                            </div>
+                            <div class="tool-prompt">
+                                <h4>Example Prompt</h4>
+                                <p>"Refactor the button component to use modern CSS"</p>
+                            </div>
+                        </div>
+                        <div class="ai-tool-card">
+                            <div class="tool-icon">🌊</div>
+                            <h3>Windsurf</h3>
+                            <div class="tool-use-cases">
+                                <h4>Best Use Cases</h4>
+                                <ul>
+                                    <li>Collaborative coding</li>
+                                    <li>Real-time assistance</li>
+                                    <li>Project-wide changes</li>
+                                </ul>
+                            </div>
+                            <div class="tool-advantages">
+                                <h4>Advantages</h4>
+                                <ul>
+                                    <li>AI-native IDE</li>
+                                    <li>Cascade agent</li>
+                                    <li>Seamless workflow</li>
+                                </ul>
+                            </div>
+                            <div class="tool-limitations">
+                                <h4>Still Need To</h4>
+                                <ul>
+                                    <li>Provide clear goals</li>
+                                    <li>Verify implementations</li>
+                                    <li>Maintain code quality</li>
+                                </ul>
+                            </div>
+                            <div class="tool-prompt">
+                                <h4>Example Prompt</h4>
+                                <p>"Add dark mode to the entire application"</p>
+                            </div>
+                        </div>
+                        <div class="ai-tool-card">
+                            <div class="tool-icon">🚀</div>
+                            <h3>Antigravity</h3>
+                            <div class="tool-use-cases">
+                                <h4>Best Use Cases</h4>
+                                <ul>
+                                    <li>Advanced code generation</li>
+                                    <li>Complex refactoring</li>
+                                    <li>Architecture design</li>
+                                </ul>
+                            </div>
+                            <div class="tool-advantages">
+                                <h4>Advantages</h4>
+                                <ul>
+                                    <li>Specialized for code</li>
+                                    <li>Deep understanding</li>
+                                    <li>Advanced features</li>
+                                </ul>
+                            </div>
+                            <div class="tool-limitations">
+                                <h4>Still Need To</h4>
+                                <ul>
+                                    <li>Review generated code</li>
+                                    <li>Understand patterns</li>
+                                    <li>Maintain standards</li>
+                                </ul>
+                            </div>
+                            <div class="tool-prompt">
+                                <h4>Example Prompt</h4>
+                                <p>"Refactor this component to use React hooks efficiently"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Challenge Section -->
+        <section class="section challenge-section" id="challenge" data-section="9">
+            <!-- TEACHING NOTE: Explain the challenge. Give 15 minutes. Walk around and help. -->
+            <!-- PRACTICAL TIP: "Don't worry about perfection. Focus on learning and trying new things." -->
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Your Turn</span>
+                    <h2 class="section-title">Hands-On Coding Challenge</h2>
+                    <p class="section-description">Build something real in 15 minutes</p>
+                </div>
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <h3>🎯 Challenge: Build a Mini Component</h3>
+                        <div class="challenge-timer">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <span>15 Minutes</span>
+                        </div>
+                    </div>
+                    <div class="challenge-instructions">
+                        <p>Choose <strong>ONE</strong> component to build from scratch using HTML, CSS, and JavaScript:</p>
+                    </div>
+                    <div class="challenge-options">
+                        <div class="challenge-option">
+                            <input type="radio" name="challenge" id="opt1">
+                            <label for="opt1">📝 Todo List App - Add, remove, and mark tasks as complete</label>
+                        </div>
+                        <div class="challenge-option">
+                            <input type="radio" name="challenge" id="opt2">
+                            <label for="opt2">🧮 Calculator - Basic arithmetic operations with a clean UI</label>
+                        </div>
+                        <div class="challenge-option">
+                            <input type="radio" name="challenge" id="opt3">
+                            <label for="opt3">🌤️ Weather Card - Display weather info with icons and styling</label>
+                        </div>
+                        <div class="challenge-option">
+                            <input type="radio" name="challenge" id="opt4">
+                            <label for="opt4">🔐 Login Form - Email/password fields with validation</label>
+                        </div>
+                        <div class="challenge-option">
+                            <input type="radio" name="challenge" id="opt5">
+                            <label for="opt5">🛍️ Product Card - Image, title, price, and add to cart button</label>
+                        </div>
+                        <div class="challenge-option">
+                            <input type="radio" name="challenge" id="opt6">
+                            <label for="opt6">🖼️ Image Gallery - Grid layout with hover effects</label>
+                        </div>
+                        <div class="challenge-option">
+                            <input type="radio" name="challenge" id="opt7">
+                            <label for="opt7">🧭 Navigation Bar - Responsive menu with hamburger icon</label>
+                        </div>
+                        <div class="challenge-option">
+                            <input type="radio" name="challenge" id="opt8">
+                            <label for="opt8">💬 Modal/Popup - Open/close with overlay effect</label>
+                        </div>
+                        <div class="challenge-option">
+                            <input type="radio" name="challenge" id="opt9">
+                            <label for="opt9">👤 Profile Card - Avatar, name, bio, and social links</label>
+                        </div>
+                        <div class="challenge-option">
+                            <input type="radio" name="challenge" id="opt10">
+                            <label for="opt10">🔍 Search Bar - Input field with search icon and results</label>
+                        </div>
+                    </div>
+                    <div class="challenge-evaluation">
+                        <h4>Evaluation Criteria</h4>
+                        <div class="evaluation-items">
+                            <div class="evaluation-item">
+                                <span>🎨</span>
+                                <span>UI Design</span>
+                            </div>
+                            <div class="evaluation-item">
+                                <span>💻</span>
+                                <span>Code Quality</span>
+                            </div>
+                            <div class="evaluation-item">
+                                <span>📱</span>
+                                <span>Responsiveness</span>
+                            </div>
+                            <div class="evaluation-item">
+                                <span>✨</span>
+                                <span>Creativity</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Example Code Section -->
+                    <div class="challenge-example">
+                        <h4>💡 Example: Simple Calculator</h4>
+                        <p>Here's a starter code to help you begin. Modify and expand it!</p>
+                        <div class="example-demo-container">
+                            <div class="example-code-side">
+                                <div class="example-code-tabs">
+                                    <button class="example-tab active" data-tab="html">HTML</button>
+                                    <button class="example-tab" data-tab="css">CSS</button>
+                                    <button class="example-tab" data-tab="js">JavaScript</button>
+                                </div>
+                                <div class="example-code-content">
+                                    <div class="example-code-panel active" id="html-code">
+<pre><code>&lt;div class="calculator"&gt;
+  &lt;input type="text" id="display" readonly&gt;
+  &lt;div class="buttons"&gt;
+    &lt;button onclick="clearDisplay()"&gt;C&lt;/button&gt;
+    &lt;button onclick="appendToDisplay('/')"&gt;/&lt;/button&gt;
+    &lt;button onclick="appendToDisplay('*')"&gt;*&lt;/button&gt;
+    &lt;button onclick="deleteLast()"&gt;←&lt;/button&gt;
+    &lt;button onclick="appendToDisplay('7')"&gt;7&lt;/button&gt;
+    &lt;button onclick="appendToDisplay('8')"&gt;8&lt;/button&gt;
+    &lt;button onclick="appendToDisplay('9')"&gt;9&lt;/button&gt;
+    &lt;button onclick="appendToDisplay('-')"&gt;-&lt;/button&gt;
+    &lt;button onclick="appendToDisplay('4')"&gt;4&lt;/button&gt;
+    &lt;button onclick="appendToDisplay('5')"&gt;5&lt;/button&gt;
+    &lt;button onclick="appendToDisplay('6')"&gt;6&lt;/button&gt;
+    &lt;button onclick="appendToDisplay('+')"&gt;+&lt;/button&gt;
+    &lt;button onclick="appendToDisplay('1')"&gt;1&lt;/button&gt;
+    &lt;button onclick="appendToDisplay('2')"&gt;2&lt;/button&gt;
+    &lt;button onclick="appendToDisplay('3')"&gt;3&lt;/button&gt;
+    &lt;button onclick="calculate()" class="equals"&gt;=&lt;/button&gt;
+    &lt;button onclick="appendToDisplay('0')"&gt;0&lt;/button&gt;
+    &lt;button onclick="appendToDisplay('.')"&gt;.&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                                    </div>
+                                    <div class="example-code-panel" id="css-code">
+<pre><code>.calculator {
+  width: 300px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+#display {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  font-size: 24px;
+  text-align: right;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.9);
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background: rgba(255,255,255,0.4);
+  transform: scale(1.05);
+}
+
+.equals {
+  grid-row: span 2;
+  background: #ff6b6b;
+}</code></pre>
+                                    </div>
+                                    <div class="example-code-panel" id="js-code">
+<pre><code>let display = document.getElementById('display');
+
+function appendToDisplay(value) {
+  display.value += value;
+}
+
+function clearDisplay() {
+  display.value = '';
+}
+
+function deleteLast() {
+  display.value = display.value.slice(0, -1);
+}
+
+function calculate() {
+  try {
+    display.value = eval(display.value);
+  } catch (error) {
+    display.value = 'Error';
+  }
+}</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="example-preview-side">
+                                <div class="example-preview-header">
+                                    <span>Live Preview</span>
+                                </div>
+                                <div class="example-preview-content">
+                                    <div class="calculator" id="exampleCalculator">
+                                        <input type="text" id="calculatorDisplay" readonly>
+                                        <div class="buttons">
+                                            <button onclick="clearDisplay()">C</button>
+                                            <button onclick="appendToDisplay('/')">/</button>
+                                            <button onclick="appendToDisplay('*')">*</button>
+                                            <button onclick="deleteLast()">←</button>
+                                            <button onclick="appendToDisplay('7')">7</button>
+                                            <button onclick="appendToDisplay('8')">8</button>
+                                            <button onclick="appendToDisplay('9')">9</button>
+                                            <button onclick="appendToDisplay('-')">-</button>
+                                            <button onclick="appendToDisplay('4')">4</button>
+                                            <button onclick="appendToDisplay('5')">5</button>
+                                            <button onclick="appendToDisplay('6')">6</button>
+                                            <button onclick="appendToDisplay('+')">+</button>
+                                            <button onclick="appendToDisplay('1')">1</button>
+                                            <button onclick="appendToDisplay('2')">2</button>
+                                            <button onclick="appendToDisplay('3')">3</button>
+                                            <button onclick="calculate()" class="equals">=</button>
+                                            <button onclick="appendToDisplay('0')">0</button>
+                                            <button onclick="appendToDisplay('.')">.</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Section -->
+        <section class="section career-section" id="career" data-section="10">
+            <!-- TEACHING NOTE: Explain each career path. Help students identify their interests. -->
+            <!-- INTERVIEW QUESTION: "Which tech field interests you most and why?" -->
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Your Future</span>
+                    <h2 class="section-title">Tech Career Paths</h2>
+                    <p class="section-description">Explore different fields and find your passion</p>
+                </div>
+
+                <!-- Career Paths Grid -->
+                <div class="career-paths-grid">
+                    <div class="career-path-card frontend-card">
+                        <div class="path-icon">🎨</div>
+                        <h3>Frontend Development</h3>
+                        <p class="path-description">Build what users see and interact with. Create beautiful, responsive websites and applications using HTML, CSS, JavaScript, and frameworks like React.</p>
+                        <div class="path-interest">
+                            <span class="interest-label">Best if you love:</span>
+                            <span class="interest-tags">Design • Creativity • User Experience</span>
+                        </div>
+                    </div>
+
+                    <div class="career-path-card backend-card">
+                        <div class="path-icon">⚙️</div>
+                        <h3>Backend Development</h3>
+                        <p class="path-description">Build the server-side logic and databases. Handle APIs, authentication, and business logic using languages like Python, Node.js, Java, or Go.</p>
+                        <div class="path-interest">
+                            <span class="interest-label">Best if you love:</span>
+                            <span class="interest-tags">Logic • Problem Solving • Systems</span>
+                        </div>
+                    </div>
+
+                    <div class="career-path-card fullstack-card">
+                        <div class="path-icon">🔗</div>
+                        <h3>Full Stack Development</h3>
+                        <p class="path-description">Work on both frontend and backend. Build complete applications from database to user interface. Requires knowledge of both sides of development.</p>
+                        <div class="path-interest">
+                            <span class="interest-label">Best if you love:</span>
+                            <span class="interest-tags">Versatility • Complete Products • Learning</span>
+                        </div>
+                    </div>
+
+                    <div class="career-path-card qa-card">
+                        <div class="path-icon">🔍</div>
+                        <h3>Quality Assurance (QA)</h3>
+                        <p class="path-description">Ensure software quality through testing. Find bugs, create test plans, and automate testing processes to deliver reliable products.</p>
+                        <div class="path-interest">
+                            <span class="interest-label">Best if you love:</span>
+                            <span class="interest-tags">Detail • Quality • Investigation</span>
+                        </div>
+                    </div>
+
+                    <div class="career-path-card ba-card">
+                        <div class="path-icon">📊</div>
+                        <h3>Business Analyst (BA)</h3>
+                        <p class="path-description">Bridge between business and tech. Understand requirements, analyze processes, and ensure solutions meet business needs.</p>
+                        <div class="path-interest">
+                            <span class="interest-label">Best if you love:</span>
+                            <span class="interest-tags">Communication • Analysis • Strategy</span>
+                        </div>
+                    </div>
+
+                    <div class="career-path-card ai-card">
+                        <div class="path-icon">🤖</div>
+                        <h3>AI & Machine Learning</h3>
+                        <p class="path-description">Build intelligent systems that learn and improve. Work on chatbots, recommendation systems, and automation using Python, TensorFlow, and ML algorithms.</p>
+                        <div class="path-interest">
+                            <span class="interest-label">Best if you love:</span>
+                            <span class="interest-tags">Math • Innovation • Automation</span>
+                        </div>
+                    </div>
+
+                    <div class="career-path-card datascience-card">
+                        <div class="path-icon">📈</div>
+                        <h3>Data Science</h3>
+                        <p class="path-description">Analyze data to find insights and patterns. Work with statistics, visualization, and predictive modeling to drive business decisions.</p>
+                        <div class="path-interest">
+                            <span class="interest-label">Best if you love:</span>
+                            <span class="interest-tags">Statistics • Patterns • Insights</span>
+                        </div>
+                    </div>
+
+                    <div class="career-path-card devops-card">
+                        <div class="path-icon">🚀</div>
+                        <h3>DevOps</h3>
+                        <p class="path-description">Manage deployment and infrastructure. Automate CI/CD pipelines, cloud services, and ensure smooth software delivery and operations.</p>
+                        <div class="path-interest">
+                            <span class="interest-label">Best if you love:</span>
+                            <span class="interest-tags">Automation • Infrastructure • Efficiency</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Career Timeline -->
+                <div class="career-timeline-section">
+                    <h3 class="timeline-title">📅 General Career Timeline</h3>
+                    <div class="career-path">
+                        <div class="career-step">
+                            <div class="step-marker">1</div>
+                            <div class="step-content">
+                                <h3>Learning Phase</h3>
+                                <p class="step-skills">Learn fundamentals, build small projects, explore different fields</p>
+                                <p class="step-duration">0-6 months</p>
+                            </div>
+                        </div>
+                        <div class="career-step">
+                            <div class="step-marker">2</div>
+                            <div class="step-content">
+                                <h3>Skill Building</h3>
+                                <p class="step-skills">Deep dive into chosen field, build portfolio, learn industry tools</p>
+                                <p class="step-duration">6-12 months</p>
+                            </div>
+                        </div>
+                        <div class="career-step">
+                            <div class="step-marker">3</div>
+                            <div class="step-content">
+                                <h3>Internship/Entry Level</h3>
+                                <p class="step-skills">First industry experience, learn from professionals, real projects</p>
+                                <p class="step-duration">1-2 years</p>
+                            </div>
+                        </div>
+                        <div class="career-step">
+                            <div class="step-marker">4</div>
+                            <div class="step-content">
+                                <h3>Mid-Level Professional</h3>
+                                <p class="step-skills">Independent work, specialized skills, mentoring juniors</p>
+                                <p class="step-duration">2-4 years</p>
+                            </div>
+                        </div>
+                        <div class="career-step">
+                            <div class="step-marker">5</div>
+                            <div class="step-content">
+                                <h3>Senior/Lead</h3>
+                                <p class="step-skills">Leadership, architecture decisions, strategic thinking</p>
+                                <p class="step-duration">4+ years</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="career-tips">
+                    <div class="tip-highlight">
+                        <h4>💡 How to Choose Your Path</h4>
+                        <ul>
+                            <li>Try small projects in different fields to see what you enjoy</li>
+                            <li>Consider your strengths: creative vs analytical vs communication</li>
+                            <li>Research job market demand and salary expectations</li>
+                            <li>Talk to professionals in different roles</li>
+                            <li>Remember: You can always switch paths later!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Q&A Section -->
+        <section class="section qa-section" id="qa" data-section="11">
+            <!-- TEACHING NOTE: Thank everyone. Encourage questions. End on a high note. -->
+            <div class="container">
+                <div class="qa-content">
+                    <div class="qa-main">
+                        <h1 class="qa-title">Thank You</h1>
+                        <p class="qa-subtitle">Questions?</p>
+                        <div class="qa-message">
+                            <p>Stay Curious.</p>
+                            <p>Keep Building.</p>
+                            <p>Keep Learning.</p>
+                        </div>
+                        <div class="qa-contact">
+                            <div class="contact-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <span>vaishurgupta2010@gmail.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                                <span>https://www.linkedin.com/in/vaishnavi-gupta-175ab1214/</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
